@@ -7,8 +7,7 @@ public class Item : MonoBehaviour
 {
     public bool put;
     public Transform parent;
-
-
+    private int ItemNumber;
 
 
     void Start()
@@ -33,7 +32,10 @@ public class Item : MonoBehaviour
             transform.localPosition = pos;
             transform.localRotation = Quaternion.Euler(Vector3.zero);
             put = true;
+            ItemNumber = ItemMenager.Instance.ItemNo;
+            ItemMenager.Instance.ItemNo++;
         }
+
     }
 
 
@@ -43,21 +45,23 @@ public class Item : MonoBehaviour
 
         Item obj = other.GetComponent<Item>();//Temas edilen objenin içinde Item Comp.'a bakar
 
-        // other.gameObject.tag=="nesne" 
 
         if (obj)
+
         {
             if (obj.put == true)
             {
 
+                if (ItemNumber > obj.ItemNumber)
+                {
+                    put = false;
+                    transform.parent = parent;
+                    transform.localPosition = Vector3.zero;
+                    transform.localRotation = Quaternion.Euler(Vector3.zero);
+                    ItemMenager.Instance.itemList.Push(gameObject);
+                    Debug.Log(ItemMenager.Instance.itemList.Count);
+                }
 
-                put = false;
-                transform.parent = parent;
-                transform.localPosition = Vector3.zero;
-                transform.localRotation = Quaternion.Euler(Vector3.zero);
-
-                ItemMenager.Instance.itemList.Push(gameObject);
-                Debug.Log(ItemMenager.Instance.itemList.Count);
 
             }
 

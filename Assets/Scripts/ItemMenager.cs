@@ -9,7 +9,7 @@ public class ItemMenager : MonoBehaviour
     public GameObject itemToPush2;
     public GameObject Push1Parent;
     public GameObject Push2Parent;
-
+    public int ItemNo = 0;
     public static ItemMenager Instance;
 
 
