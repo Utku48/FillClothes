@@ -23066,6 +23066,7 @@ MonoBehaviour:
   itemToPush2: {fileID: 2748690767579578278, guid: 3e3097b93a1e02147bd87edb9523dad5, type: 3}
   Push1Parent: {fileID: 121116220}
   Push2Parent: {fileID: 2037237730}
+  ItemNo: 0
 --- !u!1 &1481862356
 GameObject:
   m_ObjectHideFlags: 0
