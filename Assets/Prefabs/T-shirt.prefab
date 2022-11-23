@@ -100,6 +100,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   put: 0
   parent: {fileID: 0}
+  TriggerMaterial: {fileID: 2100000, guid: 78c27bf523330674989dac192406c2d8, type: 2}
+  DefaultMaterial: {fileID: 0}
 --- !u!54 &4697017196657845874
 Rigidbody:
   m_ObjectHideFlags: 0

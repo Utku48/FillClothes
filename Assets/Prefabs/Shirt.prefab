@@ -100,6 +100,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   put: 0
   parent: {fileID: 0}
+  TriggerMaterial: {fileID: 2100000, guid: 78c27bf523330674989dac192406c2d8, type: 2}
+  DefaultMaterial: {fileID: 0}
 --- !u!65 &4260542484625787189
 BoxCollider:
   m_ObjectHideFlags: 0

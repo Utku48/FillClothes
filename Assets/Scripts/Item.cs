@@ -8,12 +8,15 @@ public class Item : MonoBehaviour
     public bool put;
     public Transform parent;
     private int ItemNumber;
+    public Material TriggerMaterial;
+    public Material DefaultMaterial;
 
 
     void Start()
     {
 
         parent = transform.parent;//Parent Case
+        DefaultMaterial = GetComponent<MeshRenderer>().material;
 
 
     }
@@ -38,7 +41,20 @@ public class Item : MonoBehaviour
 
     }
 
-
+    //IEnumerator istediğimiz yerde tek bir kere,belirli aralıklarla çalışabilir.
+    //performans için Update yerine kullanılır.
+    IEnumerator ItemToItem()
+    {
+        gameObject.GetComponent<MeshRenderer>().material = TriggerMaterial;
+        yield return new WaitForSeconds(0.1f);
+        put = false;
+        transform.parent = parent;
+        transform.localPosition = Vector3.zero;
+        transform.localRotation = Quaternion.Euler(Vector3.zero);
+        ItemMenager.Instance.itemList.Push(gameObject);
+        Debug.Log(ItemMenager.Instance.itemList.Count);
+        gameObject.GetComponent<MeshRenderer>().material = DefaultMaterial;
+    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -54,12 +70,7 @@ public class Item : MonoBehaviour
 
                 if (ItemNumber > obj.ItemNumber)
                 {
-                    put = false;
-                    transform.parent = parent;
-                    transform.localPosition = Vector3.zero;
-                    transform.localRotation = Quaternion.Euler(Vector3.zero);
-                    ItemMenager.Instance.itemList.Push(gameObject);
-                    Debug.Log(ItemMenager.Instance.itemList.Count);
+                    StartCoroutine(ItemToItem());
                 }
 
 
