@@ -26,8 +26,8 @@ public class ManagerForButton : MonoBehaviour
                 {
                     item.put = false;
                     item.transform.parent = SpawnPush1;
-                    item.gameObject.transform.localPosition = Vector3.zero;
-                    item.gameObject.transform.localScale = new Vector3(3, 3, 3);
+                    item.gameObject.transform.localPosition = ItemMenager.Instance.inCase1Position;
+                    // item.gameObject.transform.localScale = new Vector3(3, 3, 3);
                     GameObject temp = item.gameObject;
 
                     ItemMenager.Instance.itemList.Push(temp);
@@ -38,8 +38,8 @@ public class ManagerForButton : MonoBehaviour
                 {
                     item.put = false;
                     item.transform.parent = SpawnPush2;
-                    item.gameObject.transform.localPosition = Vector3.zero;
-                    item.gameObject.transform.localScale = new Vector3(2.5f, 3, 2.5f);
+                    item.gameObject.transform.localPosition = ItemMenager.Instance.inCase2Position;
+                    // item.gameObject.transform.localScale = new Vector3(2.5f, 3, 2.5f);
                     GameObject temp2 = item.gameObject;
 
                     ItemMenager.Instance.itemList.Push(temp2);

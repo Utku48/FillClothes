@@ -49,8 +49,10 @@ public class Item : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         put = false;
         transform.parent = parent;
-        transform.localPosition = Vector3.zero;
-        transform.localRotation = Quaternion.Euler(Vector3.zero);
+
+        transform.localPosition = ItemMenager.Instance.inCase1Position;
+        transform.localRotation = ItemMenager.Instance.inCase1Rotation;
+
         ItemMenager.Instance.itemList.Push(gameObject);
         Debug.Log(ItemMenager.Instance.itemList.Count);
         gameObject.GetComponent<MeshRenderer>().material = DefaultMaterial;
